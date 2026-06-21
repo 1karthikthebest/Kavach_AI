@@ -1,16 +1,10 @@
+
 <!DOCTYPE html>
 <html>
-
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-name="viewport"
-content=
-"width=device-width,initial-scale=1">
-
-<title>🛡 KAVACH AI</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>KAVACH AI</title>
 
 <style>
 
@@ -22,108 +16,111 @@ box-sizing:border-box;
 
 body{
 
+font-family:Arial;
+
 background:
 radial-gradient(
 circle at top,
-#16233f,
-#0f172a 40%,
+#182848,
+#0f172a,
 #020617
 );
 
-min-height:100vh;
-
-display:flex;
-
-justify-content:center;
-
-padding:40px;
-
-font-family:
-Arial;
-
 color:white;
 
+min-height:100vh;
+
+padding:22px;
+
 overflow-x:hidden;
+
+transition:1s;
+
+}
+
+body::before{
+
+content:"";
+
+position:fixed;
+
+inset:0;
+
+background:
+
+linear-gradient(
+rgba(255,255,255,.03)
+1px,
+transparent 1px
+),
+
+linear-gradient(
+90deg,
+rgba(255,255,255,.03)
+1px,
+transparent 1px
+);
+
+background-size:
+50px 50px;
+
+animation:
+grid 20s linear infinite;
+
+pointer-events:none;
+
+}
+
+@keyframes grid{
+
+to{
+
+transform:
+translateY(50px);
+
+}
 
 }
 
 .container{
 
-width:760px;
+max-width:760px;
 
-max-width:100%;
+margin:auto;
 
-padding:40px;
+padding:28px;
 
 border-radius:30px;
 
 background:
-
-rgba(
-255,
-255,
-255,
-0.04
-);
+rgba(255,255,255,.04);
 
 backdrop-filter:
-blur(24px);
+blur(18px);
 
 box-shadow:
-
-0 0 120px
-rgba(
-77,
-227,
-255,
-0.15
-);
-
-border:
-
-1px solid
-rgba(
-255,
-255,
-255,
-0.08
-);
+0 0 80px rgba(77,227,255,.15);
 
 }
 
 h1{
 
 font-family:
-
 Algerian,
 serif;
 
 font-size:
-
-4rem;
+3.7rem;
 
 text-align:center;
 
 letter-spacing:4px;
 
-color:
-
-#d9f6ff;
-
 text-shadow:
 
-0 0 30px
-#4de3ff,
+0 0 20px #4de3ff,
 
-0 0 80px
-rgba(
-77,
-227,
-255,
-.5
-);
-
-margin-bottom:12px;
+0 0 70px rgba(77,227,255,.4);
 
 }
 
@@ -131,9 +128,9 @@ margin-bottom:12px;
 
 text-align:center;
 
-font-size:18px;
-
 opacity:.8;
+
+margin-top:10px;
 
 margin-bottom:30px;
 
@@ -144,155 +141,83 @@ textarea{
 
 width:100%;
 
-border:none;
-
-outline:none;
-
 padding:18px;
 
-border-radius:20px;
+margin-top:14px;
 
 background:
+rgba(255,255,255,.05);
 
-rgba(
-255,
-255,
-255,
-0.05
-);
+border:none;
+
+border-radius:18px;
 
 color:white;
 
-font-size:16px;
-
-box-shadow:
-
-inset 0 0 25px
-rgba(
-255,
-255,
-255,
-0.03
-);
-
-}
-
-input{
-
-margin-bottom:15px;
+outline:none;
 
 }
 
 textarea{
 
-height:230px;
+height:220px;
 
 resize:none;
 
 }
 
-input:focus,
-textarea:focus{
-
-box-shadow:
-
-0 0 35px
-rgba(
-77,
-227,
-255,
-.25
-);
-
-}
-
 button{
-
-margin-top:18px;
 
 width:100%;
 
 padding:18px;
 
+margin-top:18px;
+
 border:none;
 
-border-radius:20px;
+border-radius:18px;
 
-cursor:pointer;
-
-font-size:20px;
+font-size:18px;
 
 font-weight:700;
+
+cursor:pointer;
 
 background:
 
 linear-gradient(
-
 90deg,
-
 #4de3ff,
-
 #5dff9d
-
 );
-
-transition:.35s;
 
 }
 
 button:hover{
 
 transform:
-
-translateY(-4px)
-scale(1.02);
-
-box-shadow:
-
-0 0 60px
-rgba(
-93,
-255,
-157,
-.4
-);
+translateY(-2px);
 
 }
 
 .hidden{
+
 display:none;
-}
-
-#result{
-
-margin-top:30px;
-
-padding:25px;
-
-border-radius:22px;
-
-background:
-
-rgba(
-255,
-255,
-255,
-0.03
-);
 
 }
 
 .progress{
 
-height:28px;
+height:24px;
 
-background:#101726;
+background:#111827;
 
 border-radius:999px;
 
 overflow:hidden;
 
-margin-bottom:18px;
+margin-top:20px;
 
 }
 
@@ -304,95 +229,94 @@ width:0;
 
 display:flex;
 
-justify-content:center;
-
 align-items:center;
+
+justify-content:center;
 
 font-weight:700;
 
-transition:1.2s;
+transition:1s;
 
 }
 
 .safe{
 
 background:
-
-linear-gradient(
-90deg,
-#00c853,
-#00ff95
-);
+#00d26a;
 
 }
 
 .warning{
 
 background:
-
-linear-gradient(
-90deg,
-orange,
-#ffd966
-);
+orange;
 
 }
 
 .danger{
 
 background:
+red;
 
-linear-gradient(
-90deg,
-#ff1744,
-#ff5252
-);
+}
+
+#badge{
+
+margin-top:15px;
+
+padding:12px;
+
+border-radius:14px;
+
+text-align:center;
+
+font-weight:700;
 
 }
 
 #reason{
 
-font-size:17px;
+margin-top:20px;
 
-line-height:1.9;
+line-height:1.8;
 
 }
 
-.glow{
+.card{
+
+margin-top:25px;
+
+padding:18px;
+
+border-radius:18px;
+
+background:
+rgba(255,255,255,.04);
+
+}
+
+.history{
+
+margin-top:10px;
+
+font-size:14px;
+
+opacity:.85;
+
+}
+
+.typing{
 
 animation:
-pulse
-2s infinite;
+blink 1s infinite;
 
 }
 
-@keyframes pulse{
-
-0%{
-
-box-shadow:
-0 0 0;
-
-}
+@keyframes blink{
 
 50%{
 
-box-shadow:
-
-0 0 80px
-rgba(
-77,
-227,
-255,
-.2
-);
-
-}
-
-100%{
-
-box-shadow:
-0 0 0;
+opacity:.5;
 
 }
 
@@ -404,48 +328,34 @@ box-shadow:
 
 <body>
 
-<div class="container glow">
+<div class="container">
 
-<h1>
-KAVACH AI
-</h1>
+<h1>KAVACH AI</h1>
 
-<p class="subtitle">
+<div class="subtitle">
 
 AI Powered Scam Detection
 
-</p>
+</div>
 
 <input
-
-type="password"
-
 id="api"
-
-placeholder=
-"🔑 Enter Gemini API"
-
->
+type="password"
+placeholder="🔑 Paste Gemini API Key">
 
 <textarea
-
 id="msg"
-
-placeholder=
-"Paste suspicious SMS / Email / WhatsApp..."
-
-></textarea>
+placeholder="Paste suspicious message..."></textarea>
 
 <button
 onclick="scan()">
 
-🛡 SCAN NOW
+🛡 Scan Now
 
 </button>
 
 <div
 id="result"
-
 class="hidden">
 
 <div class="progress">
@@ -458,9 +368,46 @@ class="hidden">
 
 </div>
 
-<div id="reason">
+<div id="badge">
 
 Waiting...
+
+</div>
+
+<div id="reason">
+
+</div>
+
+<button
+onclick="speak()">
+
+🔊 Read Analysis
+
+</button>
+
+<div class="card">
+
+<b>Detected URLs</b>
+
+<div id="urls">
+
+None
+
+</div>
+
+</div>
+
+<div class="card">
+
+<b>Scan History</b>
+
+<div
+id="history"
+class="history">
+
+Empty
+
+</div>
 
 </div>
 
@@ -470,19 +417,17 @@ Waiting...
 
 <script>
 
+let last=""
+
+loadHistory()
+
 async function scan(){
 
-const api=
-document
-.getElementById(
-"api"
-).value
+let api=
+apiField()
 
-const msg=
-document
-.getElementById(
-"msg"
-).value
+let msg=
+msgField()
 
 if(!api||!msg){
 
@@ -494,26 +439,17 @@ return
 
 }
 
-document
-.getElementById(
-"result"
-)
-.classList
-.remove(
-"hidden"
-)
+show()
 
-document
-.getElementById(
-"reason"
-)
-.innerHTML=
+type()
 
-"🧠 AI scanning..."
+detectUrls(
+msg
+)
 
 try{
 
-const r=
+let r=
 
 await fetch(
 
@@ -542,15 +478,15 @@ parts:[
 
 {
 
-text:
-`
+text:`
 
-Analyze scam probability.
+You are KAVACH AI.
 
-Return JSON:
+Return ONLY JSON.
 
 {
 "score":0,
+"verdict":"",
 "reason":""
 }
 
@@ -574,7 +510,7 @@ ${msg}
 
 )
 
-const data=
+let data=
 await r.json()
 
 let text=
@@ -596,86 +532,239 @@ text
 ""
 )
 
-const result=
+let out=
 JSON.parse(
 text
 )
 
-updateBar(
-result.score
+last=
+out.reason
+
+paint(
+out.score
 )
 
-document
-.getElementById(
-"reason"
-)
-.innerHTML=
+reason.innerHTML=
 
-result.reason
+`
+<h2>
+${out.verdict}
+</h2>
+
+${out.reason}
+
+`
+
+save(
+out.score,
+out.verdict
+)
+
+}
+catch{
+
+reason.innerHTML=
+
+"❌ Failed"
 
 }
 
-catch(e){
-
-document
-.getElementById(
-"reason"
-)
-.innerHTML=
-
-"❌ Scan Failed"
-
 }
 
-}
+function paint(score){
 
-function updateBar(score){
+let b=bar
 
-let bar=
-document
-.getElementById(
-"bar"
-)
-
-bar.style.width=
+b.style.width=
 score+"%"
 
-bar.innerHTML=
+b.innerHTML=
 score+"%"
 
-bar.className=""
+b.className=""
 
 if(score<30){
 
-bar.classList
+b.classList
 .add(
 "safe"
 )
+
+badge.innerHTML=
+"🟢 SAFE"
+
+document.body.style.boxShadow=
+"0 0 180px green"
 
 }
 
 else if(score<70){
 
-bar.classList
+b.classList
 .add(
 "warning"
 )
+
+badge.innerHTML=
+"🟡 SUSPICIOUS"
+
+document.body.style.boxShadow=
+"0 0 180px orange"
 
 }
 
 else{
 
-bar.classList
+b.classList
 .add(
 "danger"
 )
 
+badge.innerHTML=
+"🔴 HIGH RISK"
+
+document.body.style.boxShadow=
+"0 0 180px red"
+
 }
+
+}
+
+function speak(){
+
+speechSynthesis
+.speak(
+
+new SpeechSynthesisUtterance(
+last
+)
+
+)
+
+}
+
+function detectUrls(t){
+
+let u=
+
+t.match(
+/https?:\/\/[^\s]+/g
+)
+
+urls.innerHTML=
+
+u
+?
+u.join("<br>")
+:
+"None"
+
+}
+
+function save(s,v){
+
+let h=
+
+JSON.parse(
+
+localStorage
+.getItem(
+"kavach"
+)
+
+||
+"[]"
+
+)
+
+h.unshift(
+`${s}% • ${v}`
+)
+
+h=h.slice(
+0,
+6
+)
+
+localStorage
+.setItem(
+"kavach",
+
+JSON.stringify(
+h
+)
+
+)
+
+loadHistory()
+
+}
+
+function loadHistory(){
+
+let h=
+
+JSON.parse(
+
+localStorage
+.getItem(
+"kavach"
+)
+
+||
+"[]"
+
+)
+
+history.innerHTML=
+
+h.join("<br>")
+
+||
+
+"Empty"
+
+}
+
+function show(){
+
+result.classList
+.remove(
+"hidden"
+)
+
+}
+
+function type(){
+
+reason.innerHTML=
+
+`
+<div class="typing">
+
+🧠 Checking urgency...<br>
+🔍 Detecting patterns...<br>
+🛡 Finalizing...
+
+</div>
+
+`
+
+}
+
+function apiField(){
+
+return api.value
+
+}
+
+function msgField(){
+
+return msg.value
 
 }
 
 </script>
 
 </body>
-
 </html>
