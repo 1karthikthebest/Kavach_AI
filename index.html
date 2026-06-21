@@ -15,59 +15,127 @@ content=
 <style>
 
 *{
+margin:0;
+padding:0;
 box-sizing:border-box;
-font-family:Arial;
 }
 
 body{
 
-margin:0;
+background:
+radial-gradient(
+circle at top,
+#16233f,
+#0f172a 40%,
+#020617
+);
 
-background:#0f172a;
-
-color:white;
+min-height:100vh;
 
 display:flex;
 
 justify-content:center;
 
-padding:30px;
+padding:40px;
+
+font-family:
+Arial;
+
+color:white;
+
+overflow-x:hidden;
 
 }
 
 .container{
 
-width:700px;
+width:760px;
 
 max-width:100%;
+
+padding:40px;
+
+border-radius:30px;
+
+background:
+
+rgba(
+255,
+255,
+255,
+0.04
+);
+
+backdrop-filter:
+blur(24px);
+
+box-shadow:
+
+0 0 120px
+rgba(
+77,
+227,
+255,
+0.15
+);
+
+border:
+
+1px solid
+rgba(
+255,
+255,
+255,
+0.08
+);
 
 }
 
 h1{
 
-text-align:center;
-
-font-size:3rem;
-
-color:aliceblue;
-
 font-family:
+
 Algerian,
 serif;
 
-}
+font-size:
 
-p{
+4rem;
 
 text-align:center;
 
+letter-spacing:4px;
+
 color:
+
+#d9f6ff;
+
+text-shadow:
+
+0 0 30px
+#4de3ff,
+
+0 0 80px
 rgba(
+77,
+227,
 255,
-255,
-255,
-.75
+.5
 );
+
+margin-bottom:12px;
+
+}
+
+.subtitle{
+
+text-align:center;
+
+font-size:18px;
+
+opacity:.8;
+
+margin-bottom:30px;
 
 }
 
@@ -76,63 +144,118 @@ textarea{
 
 width:100%;
 
-padding:15px;
-
 border:none;
 
-border-radius:15px;
+outline:none;
+
+padding:18px;
+
+border-radius:20px;
 
 background:
+
 rgba(
 255,
 255,
 255,
-.05
+0.05
 );
 
 color:white;
 
 font-size:16px;
 
-outline:none;
+box-shadow:
+
+inset 0 0 25px
+rgba(
+255,
+255,
+255,
+0.03
+);
+
+}
+
+input{
+
+margin-bottom:15px;
 
 }
 
 textarea{
 
-height:220px;
+height:230px;
 
-margin-top:12px;
+resize:none;
+
+}
+
+input:focus,
+textarea:focus{
+
+box-shadow:
+
+0 0 35px
+rgba(
+77,
+227,
+255,
+.25
+);
 
 }
 
 button{
 
+margin-top:18px;
+
 width:100%;
 
-padding:15px;
+padding:18px;
 
-margin-top:15px;
+border:none;
 
-font-size:18px;
+border-radius:20px;
+
+cursor:pointer;
+
+font-size:20px;
+
+font-weight:700;
 
 background:
 
 linear-gradient(
+
 90deg,
+
 #4de3ff,
+
 #5dff9d
+
 );
 
-border:none;
+transition:.35s;
 
-border-radius:14px;
+}
 
-cursor:pointer;
+button:hover{
 
-font-weight:700;
+transform:
 
-color:#04101d;
+translateY(-4px)
+scale(1.02);
+
+box-shadow:
+
+0 0 60px
+rgba(
+93,
+255,
+157,
+.4
+);
 
 }
 
@@ -141,18 +264,35 @@ display:none;
 }
 
 #result{
-margin-top:25px;
+
+margin-top:30px;
+
+padding:25px;
+
+border-radius:22px;
+
+background:
+
+rgba(
+255,
+255,
+255,
+0.03
+);
+
 }
 
 .progress{
 
-height:24px;
+height:28px;
 
-background:#222;
+background:#101726;
 
-border-radius:20px;
+border-radius:999px;
 
 overflow:hidden;
+
+margin-bottom:18px;
 
 }
 
@@ -162,8 +302,6 @@ height:100%;
 
 width:0;
 
-transition:1s;
-
 display:flex;
 
 justify-content:center;
@@ -172,25 +310,91 @@ align-items:center;
 
 font-weight:700;
 
+transition:1.2s;
+
 }
 
 .safe{
-background:#00d26a;
+
+background:
+
+linear-gradient(
+90deg,
+#00c853,
+#00ff95
+);
+
 }
 
 .warning{
-background:orange;
+
+background:
+
+linear-gradient(
+90deg,
+orange,
+#ffd966
+);
+
 }
 
 .danger{
-background:red;
+
+background:
+
+linear-gradient(
+90deg,
+#ff1744,
+#ff5252
+);
+
 }
 
 #reason{
 
-margin-top:20px;
+font-size:17px;
 
-line-height:1.8;
+line-height:1.9;
+
+}
+
+.glow{
+
+animation:
+pulse
+2s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+
+box-shadow:
+0 0 0;
+
+}
+
+50%{
+
+box-shadow:
+
+0 0 80px
+rgba(
+77,
+227,
+255,
+.2
+);
+
+}
+
+100%{
+
+box-shadow:
+0 0 0;
+
+}
 
 }
 
@@ -200,16 +404,15 @@ line-height:1.8;
 
 <body>
 
-<div class="container">
+<div class="container glow">
 
 <h1>
-🛡 KAVACH AI
+KAVACH AI
 </h1>
 
-<p>
+<p class="subtitle">
 
-Enter Gemini API
-and scan message
+AI Powered Scam Detection
 
 </p>
 
@@ -220,41 +423,30 @@ type="password"
 id="api"
 
 placeholder=
-"Enter Gemini API Key"
+"🔑 Enter Gemini API"
 
 >
-
-<br><br>
 
 <textarea
 
 id="msg"
 
 placeholder=
-"Paste suspicious message..."
+"Paste suspicious SMS / Email / WhatsApp..."
 
 ></textarea>
 
 <button
 onclick="scan()">
 
-🔍 Analyze
+🛡 SCAN NOW
 
 </button>
 
 <div
-
 id="result"
 
-class="hidden"
-
->
-
-<h2>
-
-AI Checked
-
-</h2>
+class="hidden">
 
 <div class="progress">
 
@@ -281,28 +473,21 @@ Waiting...
 async function scan(){
 
 const api=
-
 document
 .getElementById(
 "api"
-)
-.value
+).value
 
 const msg=
-
 document
 .getElementById(
 "msg"
-)
-.value
+).value
 
-if(
-!api ||
-!msg
-){
+if(!api||!msg){
 
 alert(
-"Enter API and Message"
+"Enter API + Message"
 )
 
 return
@@ -324,7 +509,7 @@ document
 )
 .innerHTML=
 
-"🧠 AI Scanning..."
+"🧠 AI scanning..."
 
 try{
 
@@ -336,8 +521,7 @@ await fetch(
 
 {
 
-method:
-"POST",
+method:"POST",
 
 headers:{
 
@@ -359,13 +543,11 @@ parts:[
 {
 
 text:
-
 `
-You are scam detector.
 
-Analyze message.
+Analyze scam probability.
 
-Return ONLY:
+Return JSON:
 
 {
 "score":0,
@@ -404,7 +586,6 @@ data
 .text
 
 text=
-
 text
 .replace(
 /```json/g,
@@ -416,7 +597,6 @@ text
 )
 
 const result=
-
 JSON.parse(
 text
 )
@@ -443,22 +623,15 @@ document
 )
 .innerHTML=
 
-"❌ Invalid API / Error"
-
-console.log(
-e
-)
+"❌ Scan Failed"
 
 }
 
 }
 
-function updateBar(
-score
-){
+function updateBar(score){
 
-const bar=
-
+let bar=
 document
 .getElementById(
 "bar"
@@ -467,14 +640,12 @@ document
 bar.style.width=
 score+"%"
 
-bar.innerText=
+bar.innerHTML=
 score+"%"
 
 bar.className=""
 
-if(
-score<30
-){
+if(score<30){
 
 bar.classList
 .add(
@@ -483,9 +654,7 @@ bar.classList
 
 }
 
-else if(
-score<70
-){
+else if(score<70){
 
 bar.classList
 .add(
